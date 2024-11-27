@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="overlay-dropdown" id="overlay">
+        <div class="brand">
+            <h1>DarkSoul</h1>
+        </div>
+        <ul>
+            <li><a href="#intro-div" onclick="navigation()">Home</a></li>
+            <li><a href="#about-div" onclick="navigation()">About</a></li>
+            <li><a href="#services-div" onclick="navigation()">Services</a></li>
+            <li><a href="#careers-div" onclick="navigation()">Careers</a></li>
+            <li><a href="#contact-div" onclick="navigation()">Contact</a></li>
+        </ul>
+    
+    </div>
+    
+    <div class="darksoul-navbar">
+        <div class="brand">
+            <h1>DarkSoul</h1>
+        </div>
+        <ul>
+            <li><a href="#intro-div">Home</a><div class="rect"></div></li>
+            <li><a href="#about-div">About</a><div class="rect"></div></li>
+            <li><a href="#services-div">Services</a><div class="rect"></div></li>
+            <li><a href="#careers-div">Careers</a><div class="rect"></div></li>
+            <li><a href="#contact-div">Contact</a><div class="rect"></div></li>
+        </ul>
+    
+        <div class="navbar-toggler" id="toggler" onclick="mobilenav()">
+            <div class="line1" id="ln1"></div>
+            <div class="line2" id="ln2"></div>
+        </div>
+        <div id="particle-container"></div>
+    
+    </div>
+    
+    <!-- <div id="intro-div"><h2>HOME</h2></div>
+    <div id="about-div"><h2>ABOUT</h2></div>
+    <div id="services-div"><h2>SERVICES</h2></div>
+    <div id="careers-div"><h2>CAREERS</h2></div>
+    <div id="contact-div"><h2>CONTACT</h2></div> -->
+    <!-- <p class="disclaimer">Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a></p> -->
+<script>
+    class ParticleBackground {
+        constructor(container, options = {}) {
+            this.container = container;
+            this.width = window.innerWidth;
+            this.height = window.innerHeight;
+            
+            // Default options
+            this.options = {
+                particleCount: 200,
+                particleMaxSize: 3,
+                particleMinSize: 1,
+                particleSpeed: 0.5,
+                ...options
+            };
+
+            this.particles = [];
+            this.mouseX = 0;
+            this.mouseY = 0;
+
+            this.init();
+            this.animate();
+            this.bindEvents();
+        }
+
+        init() {
+            // Create particles
+            for (let i = 0; i < this.options.particleCount; i++) {
+                this.createParticle();
+            }
+        }
+
+        createParticle() {
+            const particle = document.createElement('div');
+            particle.classList.add('particle');
+
+            // Random position
+            const x = Math.random() * this.width;
+            const y = Math.random() * this.height;
+
+            // Random size
+            const size = Math.random() * 
+                (this.options.particleMaxSize - this.options.particleMinSize) + 
+                this.options.particleMinSize;
+
+            // Random initial velocity
+            const vx = (Math.random() - 0.5) * this.options.particleSpeed;
+            const vy = (Math.random() - 0.5) * this.options.particleSpeed;
+
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${x}px`;
+            particle.style.top = `${y}px`;
+
+            // Store particle properties
+            const particleObj = {
+                element: particle,
+                x: x,
+                y: y,
+                vx: vx,
+                vy: vy,
+                size: size
+            };
+
+            this.particles.push(particleObj);
+            this.container.appendChild(particle);
+        }
+
+        animate() {
+            this.particles.forEach(particle => {
+                // Update position
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+
+                // Add mouse influence
+                const dx = this.mouseX - particle.x;
+                const dy = this.mouseY - particle.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+
+                // Subtle mouse attraction/repulsion
+                if (distance < 100) {
+                    particle.x += dx * 0.01;
+                    particle.y += dy * 0.01;
+                }
+
+                // Wrap around screen edges
+                if (particle.x < 0) particle.x = this.width;
+                if (particle.x > this.width) particle.x = 0;
+                if (particle.y < 0) particle.y = this.height;
+                if (particle.y > this.height) particle.y = 0;
+
+                // Update particle position
+                particle.element.style.transform = `translate(${particle.x}px, ${particle.y}px)`;
+            });
+
+            // Continue animation
+            requestAnimationFrame(() => this.animate());
+        }
+
+        bindEvents() {
+            // Mouse movement tracking
+            window.addEventListener('mousemove', (e) => {
+                this.mouseX = e.clientX;
+                this.mouseY = e.clientY;
+            });
+
+            // Resize handling
+            window.addEventListener('resize', () => {
+                this.width = window.innerWidth;
+                this.height = window.innerHeight;
+            });
+        }
+    }
+
+    // Initialize particle background
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('particle-container');
+        new ParticleBackground(container, {
+            particleCount: 300,
+            particleMaxSize: 4,
+            particleMinSize: 1,
+            particleSpeed: 0.3
+        });
+    });
+   
+    var toggler = document.getElementById("toggler");
+    var overlay = document.getElementById("overlay");
+    var ln1 = document.getElementById("ln1");
+    var ln2 = document.getElementById("ln2");
+    var toggleflag = 0;
+
+    var intro = document.getElementById('intro-div');
+    var about = document.getElementById('about-div');
+    var services = document.getElementById('services-div');
+    var careers = document.getElementById('careers-div');
+    var contact = document.getElementById('contact-div');
+
+    
+    function mobilenav()
+    {
+        if (toggleflag == 0)
+        {
+            overlay.style.display = "flex";
+            ln1.style.transform = "rotate(50deg)";
+            ln2.style.transform = "rotate(-50deg)";
+            toggler.style.height = "1px";
+            intro.style.display = 'none';
+            about.style.display = 'none';
+            services.style.display = 'none';
+           
+            careers.style.display = 'none';
+            contact.style.display = 'none';
+            toggleflag = 1;
+        }
+        else
+        {
+            overlay.style.display = "none";
+            ln1.style.transform = "rotate(0deg)";
+            ln2.style.transform = "rotate(0deg)";
+            toggler.style.height = "40%";
+            intro.style.display = 'flex';
+            about.style.display = 'flex';
+            services.style.display = 'flex';
+          
+            careers.style.display = 'flex';
+            contact.style.display = 'flex';
+            toggleflag = 0;
+        }
+    }
+
+    function navigation()
+    {
+        overlay.style.display = "none";
+        ln1.style.transform = "rotate(0deg)";
+        ln2.style.transform = "rotate(0deg)";
+        toggler.style.height = "40%";
+        intro.style.display = 'flex';
+        about.style.display = 'flex';
+        services.style.display = 'flex';
+       
+        careers.style.display = 'flex';
+        contact.style.display = 'flex';
+        toggleflag = 0;
+    }
+</script>
+</body>
+</html>
