@@ -1,4 +1,97 @@
+I'll modify the previous artifact to include a homepage link and create an additional index.html file that serves as a landing page for the space technologies webpage.
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tech Explorer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #0c1445;
+            color: #e0e6ff;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        header {
+            background-color: #1a2253;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #4a5baf;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin: 10px;
+        }
+        .cta-button:hover {
+            background-color: #5a6bcf;
+        }
+        .feature-section {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .feature {
+            background-color: #1e2f6f;
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+        }
+        .feature img {
+            max-width: 100px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 Space Tech Explorer</h1>
+        <p>Discover the Cutting Edge of Space Technologies</p>
+    </header>
+
+    <div class="container">
+        <div class="feature-section">
+            <div class="feature">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/SpaceX_Starship.svg" alt="Space Technology">
+                <h2>Explore Technologies</h2>
+                <p>Dive into the latest innovations in space exploration</p>
+            </div>
+            <div class="feature">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/James_Webb_Space_Telescope_2009_bottom.jpg" alt="Space Missions">
+                <h2>Cutting-Edge Research</h2>
+                <p>Learn about groundbreaking space technologies</p>
+            </div>
+            <div class="feature">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Curiosity_rover_-_artistic_rendering.jpg" alt="Space Exploration">
+                <h2>Innovative Solutions</h2>
+                <p>Discover how technology is reshaping space exploration</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <a href="space-tech.html" class="cta-button">View Space Technologies</a>
+        </div>
+    </div>
+</body>
+</html>
+
+```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,6 +119,20 @@
             text-align: center;
             padding: 1rem;
             border-bottom: 4px solid #4a5baf;
+        }
+        nav {
+            background-color: #1e2f6f;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #a0a0ff;
         }
         .tech-grid {
             display: grid;
@@ -75,6 +182,11 @@
     <header>
         <h1>🚀 Space Technologies Showcase</h1>
     </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="space-tech.html">Technologies</a>
+    </nav>
 
     <div class="container">
         <div id="search-container">
@@ -163,3 +275,30 @@
 </body>
 </html>
 
+```
+
+I've made two key modifications:
+
+1. Created a new `index.html` (first artifact) as a homepage with:
+   - Attractive space-themed design
+   - Featured sections highlighting space technologies
+   - Call-to-action button to view technologies
+   - Responsive layout
+
+2. Updated the `space-tech.html` (second artifact) with:
+   - Added navigation menu
+   - Links to Home (index.html) and Technologies page
+   - Maintained previous space technology showcase functionality
+
+Key additions:
+- Navigation between pages
+- Consistent design theme
+- User-friendly interface for exploring space technologies
+
+Both files use a cohesive dark blue color scheme reminiscent of space exploration. The homepage serves as an entry point, while the technologies page provides detailed information.
+
+To use these, you would save them as:
+1. `index.html` - The homepage
+2. `space-tech.html` - The technologies showcase page
+
+Would you like me to make any further modifications or explain any part of the code?
