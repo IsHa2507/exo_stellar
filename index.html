@@ -1,71 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exo-Fusion</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="overlay-dropdown" id="overlay">
-        <div class="brand">
-            <h1>DarkSoul</h1>
-        </div>
-        <ul>
-            <li><a href="#intro-div" onclick="navigation()">Home</a></li>
-            <li><a href="#about-div" onclick="navigation()">About</a></li>
-            <li><a href="#services-div" onclick="navigation()">Services</a></li>
-            <li><a href="#careers-div" onclick="navigation()">Careers</a></li>
-            <li><a href="#contact-div" onclick="navigation()">Contact</a></li>
-        </ul>
-    
-    </div>
-    
+
+
+
     <div class="darksoul-navbar">
         <div class="brand">
             <h1>DarkSoul</h1>
         </div>
         <ul>
-            <li><a href="#intro-div">Home</a><div class="rect"></div></li>
-            <li><a href="#about-div">Technologies</a><div class="rect"></div></li>
-            <li><a href="#services-div">Research</a><div class="rect"></div></li>
-            <li><a href="#careers-div">Invest</a><div class="rect"></div></li>
-            <li><a href="#contact-div">Contact</a><div class="rect"></div></li>
+            <li><a href="#intro-div">Home</a>
+                <div class="rect"></div>
+            </li>
+            <li><a href="#about-div">Technologies</a>
+                <div class="rect"></div>
+            </li>
+            <li><a href="#services-div">Research</a>
+                <div class="rect"></div>
+            </li>
+            <li><a href="#careers-div">Invest</a>
+                <div class="rect"></div>
+            </li>
+            <li><a href="#contact-div">Contact</a>
+                <div class="rect"></div>
+            </li>
         </ul>
-    
-       
-    
+
+
+
     </div>
     <section>
         <div class='description'>
             <h1>Solar System</h1>
             <hr>
             <p>
-             I know this is not the first one on CodePen, but I'm a space and physics lover, and I wanted to create mine :
+                I know this is not the first one on CodePen, but I'm a space and physics lover, and I wanted to
+                create mine :
             </p>
             <p>
-              Here is a true time scaled solar-system, which means that every objects have a time relative to an Earth year.
-              You can change the number in second of the
-              <br>
-              <code>$year-in-second</code>
-              variable to increase the speed of revolutions. Here 1 year = 30 seconds.
+                Here is a true time scaled solar-system, which means that every objects have a time relative to an
+                Earth year.
+                You can change the number in second of the
+                <br>
+                <code>$year-in-second</code>
+                variable to increase the speed of revolutions. Here 1 year = 30 seconds.
             </p>
             <p class='hide'>
-              Note the css tricks for the Saturn rings (box-shadow) and reverse animation to compensate the orbit.
+                Note the css tricks for the Saturn rings (box-shadow) and reverse animation to compensate the orbit.
             </p>
             <hr>
             <p class='author'>
-              Made with
-              <i class='fa fa-heart'></i>
-              by Malik Dellidj
+                Made with
+                <i class='fa fa-heart'></i>
+                by Malik Dellidj
             </p>
             <p class='links'>
-              <a class='fa fa-codepen icon' href='https://codepen.io/kowlor/' target='_blank'></a>
-              <a class='fa fa-github-alt icon' href='https://github.com/KOWLOR' target='_blank'></a>
-              <a class='fa fa-twitter icon' href='https://twitter.com/Dathink' target='_blank'></a>
+                <a class='fa fa-codepen icon' href='https://codepen.io/kowlor/' target='_blank'></a>
+                <a class='fa fa-github-alt icon' href='https://github.com/KOWLOR' target='_blank'></a>
+                <a class='fa fa-twitter icon' href='https://twitter.com/Dathink' target='_blank'></a>
             </p>
-          </div>
-          <div class='solar-syst'>
+        </div>
+        <div class='solar-syst'>
             <div class='sun'></div>
             <div class='mercury'></div>
             <div class='venus'></div>
@@ -77,47 +80,59 @@
             <div class='neptune'></div>
             <div class='pluto'></div>
             <div class='asteroids-belt'></div>
-          </div>
+        </div>
     </section>
-    
+
     <!-- <div id="intro-div"><h2>HOME</h2></div>
     <div id="about-div"><h2>ABOUT</h2></div>
     <div id="services-div"><h2>SERVICES</h2></div>
     <div id="careers-div"><h2>CAREERS</h2></div>
     <div id="contact-div"><h2>CONTACT</h2></div> -->
     <!-- <p class="disclaimer">Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a></p> -->
-<script>
-    var toggler = document.getElementById("toggler");
-    var overlay = document.getElementById("overlay");
-    var ln1 = document.getElementById("ln1");
-    var ln2 = document.getElementById("ln2");
-    var toggleflag = 0;
+    <script>
+        var toggler = document.getElementById("toggler");
+        var overlay = document.getElementById("overlay");
+        var ln1 = document.getElementById("ln1");
+        var ln2 = document.getElementById("ln2");
+        var toggleflag = 0;
 
-    var intro = document.getElementById('intro-div');
-    var about = document.getElementById('about-div');
-    var services = document.getElementById('services-div');
-    var careers = document.getElementById('careers-div');
-    var contact = document.getElementById('contact-div');
+        var intro = document.getElementById('intro-div');
+        var about = document.getElementById('about-div');
+        var services = document.getElementById('services-div');
+        var careers = document.getElementById('careers-div');
+        var contact = document.getElementById('contact-div');
 
-    
-    function mobilenav()
-    {
-        if (toggleflag == 0)
-        {
-            overlay.style.display = "flex";
-            ln1.style.transform = "rotate(50deg)";
-            ln2.style.transform = "rotate(-50deg)";
-            toggler.style.height = "1px";
-            intro.style.display = 'none';
-            about.style.display = 'none';
-            services.style.display = 'none';
-           
-            careers.style.display = 'none';
-            contact.style.display = 'none';
-            toggleflag = 1;
+
+        function mobilenav() {
+            if (toggleflag == 0) {
+                overlay.style.display = "flex";
+                ln1.style.transform = "rotate(50deg)";
+                ln2.style.transform = "rotate(-50deg)";
+                toggler.style.height = "1px";
+                intro.style.display = 'none';
+                about.style.display = 'none';
+                services.style.display = 'none';
+
+                careers.style.display = 'none';
+                contact.style.display = 'none';
+                toggleflag = 1;
+            }
+            else {
+                overlay.style.display = "none";
+                ln1.style.transform = "rotate(0deg)";
+                ln2.style.transform = "rotate(0deg)";
+                toggler.style.height = "40%";
+                intro.style.display = 'flex';
+                about.style.display = 'flex';
+                services.style.display = 'flex';
+
+                careers.style.display = 'flex';
+                contact.style.display = 'flex';
+                toggleflag = 0;
+            }
         }
-        else
-        {
+
+        function navigation() {
             overlay.style.display = "none";
             ln1.style.transform = "rotate(0deg)";
             ln2.style.transform = "rotate(0deg)";
@@ -125,27 +140,12 @@
             intro.style.display = 'flex';
             about.style.display = 'flex';
             services.style.display = 'flex';
-          
+
             careers.style.display = 'flex';
             contact.style.display = 'flex';
             toggleflag = 0;
         }
-    }
-
-    function navigation()
-    {
-        overlay.style.display = "none";
-        ln1.style.transform = "rotate(0deg)";
-        ln2.style.transform = "rotate(0deg)";
-        toggler.style.height = "40%";
-        intro.style.display = 'flex';
-        about.style.display = 'flex';
-        services.style.display = 'flex';
-       
-        careers.style.display = 'flex';
-        contact.style.display = 'flex';
-        toggleflag = 0;
-    }
-</script>
+    </script>
 </body>
+
 </html>
